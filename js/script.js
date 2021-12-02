@@ -44,6 +44,10 @@ play.addEventListener('click', function(){
         numMax = 49;
     }
 
+    // generazione bombe sulla grid
+    let bombe = generateBombs(1, numMax);
+    console.log(bombe);
+
     // creazione div square
     for (let i = numMin; i <= numMax; i++) {
         
@@ -72,8 +76,13 @@ play.addEventListener('click', function(){
 
         // click sulle celle
         squareBox.addEventListener('click', function () {
-            // colorare di azzurro la cella
-            this.style.backgroundColor = 'cornflowerblue';
+
+            // colorare di azzurro la cella o rosso se è una bomba
+            if (!bombe.includes(i)) {
+                this.style.backgroundColor = 'cornflowerblue';
+            } else {
+                this.style.backgroundColor = 'tomato';
+            }
 
         });
 
@@ -85,16 +94,10 @@ play.addEventListener('click', function(){
 });
 
 
+
+
 // FUNZIONI
-
-// funzione numero casuale tra due estremi
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
 // generatore di bombe in base a grid
-
 function generateBombs(min, max) {
     const bombs = []
 
@@ -108,6 +111,3 @@ function generateBombs(min, max) {
     }
     return bombs;
 }
-
-let bombe = generateBombs(1,16);
-console.log(bombe);
