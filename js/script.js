@@ -57,7 +57,7 @@ play.addEventListener('click', function(){
         
         // creare un div
         let squareBox = document.createElement('div');
-
+        
         // dargli la classe square
         squareBox.classList.add('square');
 
@@ -83,13 +83,20 @@ play.addEventListener('click', function(){
         squareBox.addEventListener('click', function () {
             if (!bombe.includes(i)) {
                 this.style.backgroundColor = 'cornflowerblue';
+                this.classList.remove
+
             } else {
                 this.style.backgroundColor = 'tomato';
-                let allBoxes = document.querySelectorAll('.square');
                 
+                // se viene cliccata una bomba non è più possibile cliccare altro (BONUS)
+                let allBoxes = document.querySelectorAll('.square');
                 for (let i = 0; i < allBoxes.length; i++) {
                     allBoxes[i].style.pointerEvents = "none";
                 }
+                
+                // se viene cliccata una bomba rivelo tutte le bombe (BONUS ma non funziona)
+                bombe.style.backgroundColor = 'tomato';
+
             }
             
         });
@@ -120,3 +127,5 @@ function generateBombs(min, max) {
     }
     return bombs;
 }
+
+// contatore di click
