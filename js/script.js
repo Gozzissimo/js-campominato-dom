@@ -24,6 +24,22 @@ let numMax = 100;
 // click sul pulsante play
 play.addEventListener('click', function(){
 
+    // generatore di bombe in base a grid
+    const bombs = []
+    let randomNum = getRndInteger(numMin, numMax);
+
+    for (let i = 0; i < 16; i++) {
+        
+        bombs.push(randomNum);
+
+        // if (!bombs.includes(randomNum)) {
+
+        // }
+        
+    }
+    
+    console.log(bombs);
+
     // condizione di partenza
     grid.innerHTML = '';
 
@@ -83,3 +99,11 @@ play.addEventListener('click', function(){
     }
 
 });
+
+
+// FUNZIONI
+
+// funzione numero casuale tra due estremi
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
