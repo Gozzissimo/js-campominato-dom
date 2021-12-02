@@ -1,0 +1,94 @@
+:root {
+  --square-size-small: 7;
+  --square-size-medium: 9;
+  --square-size-large: 10;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.right {
+    line-height: 12vh;
+}
+
+.header img {
+    vertical-align: bottom;
+    height: 12vh;
+}
+
+.header h1 {
+    line-height: 12vh;
+    display: inline;
+} 
+
+select, button {
+    min-width: 100px;
+}
+
+.main {
+    width: 100%;
+    height: 80vh;
+    background-color: #7FFFD4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: none;
+    flex-wrap: wrap;
+    border: 2px solid darkblue;
+    height: 600px;
+    width: 600px;
+}
+
+.active {
+    display: flex;
+}
+
+.grid .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid darkblue;
+    color: darkblue;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.grid .square.small {
+    width: calc(100% / var(--square-size-small));
+    height: calc(100% / var(--square-size-small));
+}
+
+.grid .square.medium {
+    width: calc(100% / var(--square-size-medium));
+    height: calc(100% / var(--square-size-medium));
+}
+
+.grid .square.large {
+    width: calc(100% / var(--square-size-large));
+    height: calc(100% / var(--square-size-large));
+}
+
+/* footer */
+.footer {
+    width: 100%;
+    height: 8vh;
+}
+
