@@ -24,22 +24,6 @@ let numMax = 100;
 // click sul pulsante play
 play.addEventListener('click', function(){
 
-    // generatore di bombe in base a grid
-    const bombs = []
-    let randomNum = getRndInteger(numMin, numMax);
-
-    for (let i = 0; i < 16; i++) {
-        
-        bombs.push(randomNum);
-
-        // if (!bombs.includes(randomNum)) {
-
-        // }
-        
-    }
-    
-    console.log(bombs);
-
     // condizione di partenza
     grid.innerHTML = '';
 
@@ -107,3 +91,23 @@ play.addEventListener('click', function(){
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+// generatore di bombe in base a grid
+
+function generateBombs(min, max) {
+    const bombs = []
+
+    while (bombs.length < 16) {
+
+        let bomb = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (!bombs.includes(bomb)) {
+            bombs.push(bomb);
+        }
+    }
+    return bombs;
+}
+
+let bombe = generateBombs(1,16);
+console.log(bombe);
