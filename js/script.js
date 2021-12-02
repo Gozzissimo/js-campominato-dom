@@ -21,6 +21,7 @@ let numMin = 1;
 let numMax = 100;
 
 
+
 // click sul pulsante play
 play.addEventListener('click', function(){
 
@@ -44,9 +45,12 @@ play.addEventListener('click', function(){
         numMax = 49;
     }
 
+
     // generazione bombe sulla grid
     let bombe = generateBombs(1, numMax);
     console.log(bombe);
+
+
 
     // creazione div square
     for (let i = numMin; i <= numMax; i++) {
@@ -73,24 +77,29 @@ play.addEventListener('click', function(){
 
         // inserire il numero all'interno
         squareBox.innerHTML = i;
-
+        
         // click sulle celle
+        // colorare di azzurro la cella o rosso se è una bomba
         squareBox.addEventListener('click', function () {
-
-            // colorare di azzurro la cella o rosso se è una bomba
             if (!bombe.includes(i)) {
                 this.style.backgroundColor = 'cornflowerblue';
             } else {
                 this.style.backgroundColor = 'tomato';
+                let allBoxes = document.querySelectorAll('.square');
+                
+                for (let i = 0; i < allBoxes.length; i++) {
+                    allBoxes[i].style.pointerEvents = "none";
+                }
             }
-
+            
         });
-
+        
         // appendiamo in grid e rendiamola visibile
         grid.classList.add('active');
         grid.appendChild(squareBox);
+        
     }
-
+    
 });
 
 
